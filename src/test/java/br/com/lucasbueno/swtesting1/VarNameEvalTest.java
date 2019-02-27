@@ -52,4 +52,5 @@ public class VarNameEvalTest {
 		boolean result = varNameEval.isValid("1aaa");
 		Assert.assertEquals(false, result);
 	}
+		
 }
