@@ -9,12 +9,13 @@ import org.junit.Test;
 
 public class VarNameEvalTest {
 
-	private VarNameEval varNameEval;
+	private VarNameEval evaluatedVariable;
+	private boolean actual;
 
 	// execute before each test
 	@Before
 	public void setUp() {
-		varNameEval = new VarNameEval();
+		evaluatedVariable = new VarNameEval();
 	}
 
 	// execute after each test
@@ -35,22 +36,45 @@ public class VarNameEvalTest {
 
 	}
 
-	@Test // a test case method must return void and have no arguments
-	public void trueFirstLowerCase() {
-		boolean result = varNameEval.isValid("a");
-		Assert.assertEquals(true, result);
+	@Test // a test case method must return void and have no arguments	
+	public void trueFirstLowercase() {
+				
+		actual = evaluatedVariable.isValid("aDog");		
+		Assert.assertEquals(true, actual);
+	}
+	
+	@Test
+	public void falseFirstLowercase() {
+		
+		actual = evaluatedVariable.isValid("Adog");
+		Assert.assertEquals(false, actual);
 	}
 
 	@Test(timeout = 1000, expected = IndexOutOfBoundsException.class)
 	public void falseFirstLowerCase() {
-		boolean result = varNameEval.isValid("A");
+		boolean result = evaluatedVariable.isValid("A");
 		Assert.assertEquals(false, result);
 	}
 
 	@Test
-	public void falseFirstNumberCase() {
-		boolean result = varNameEval.isValid("1aaa");
-		Assert.assertEquals(false, result);
-	}
+	public void falseFirstNumber() {
 		
+		actual = evaluatedVariable.isValid("1Dog");		
+		Assert.assertEquals(false, actual);
+	}
+	
+	@Test
+	public void falseInvalidChar() {
+				
+		actual = evaluatedVariable.isValid("aDo g");		
+		Assert.assertEquals(false, actual);
+	}
+	
+	@Test
+	public void falseEmptyString() {
+				
+		actual = evaluatedVariable.isValid(" 1");		
+		Assert.assertEquals(false, actual);
+	}
+	
 }
