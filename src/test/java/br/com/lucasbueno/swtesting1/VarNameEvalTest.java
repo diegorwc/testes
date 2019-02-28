@@ -35,6 +35,12 @@ public class VarNameEvalTest {
 	public static void tearDownAfterClass() {
 
 	}
+	
+	@Test(timeout = 1000, expected = IndexOutOfBoundsException.class)
+	public void falseFirstLowerCase() {
+		boolean result = evaluatedVariable.isValid("A");
+		Assert.assertEquals(false, result);
+	}
 
 	@Test // a test case method must return void and have no arguments	
 	public void trueFirstLowercase() {
@@ -50,11 +56,6 @@ public class VarNameEvalTest {
 		Assert.assertEquals(false, actual);
 	}
 
-	@Test(timeout = 1000, expected = IndexOutOfBoundsException.class)
-	public void falseFirstLowerCase() {
-		boolean result = evaluatedVariable.isValid("A");
-		Assert.assertEquals(false, result);
-	}
 
 	@Test
 	public void falseFirstNumber() {
@@ -73,7 +74,7 @@ public class VarNameEvalTest {
 	@Test
 	public void falseEmptyString() {
 				
-		actual = evaluatedVariable.isValid(" 1");		
+		actual = evaluatedVariable.isValid(" ");		
 		Assert.assertEquals(false, actual);
 	}
 	
