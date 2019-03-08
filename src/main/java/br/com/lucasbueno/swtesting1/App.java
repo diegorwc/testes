@@ -8,8 +8,11 @@ package br.com.lucasbueno.swtesting1;
  */
 public class App {
 	public static void main(String[] args) {
-		VarNameEval eval = new VarNameEval();
-		System.out.println(eval.isValid("123asds"));
+//		VarNameEval eval = new VarNameEval();
+//		System.out.println(eval.isValid("BIRTHDATE"));
+		
+		ConstNameEval constEval = new ConstNameEval();
+		System.out.println(constEval.isValid("BIRTH DATE"));
 		
 		
 	}

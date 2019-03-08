@@ -9,4 +9,6 @@ import org.junit.runners.Suite;
 	ConstNameEvalTest.class
 })
 
-public class ExecTests {}
+public class ExecTests {
+	
+}
